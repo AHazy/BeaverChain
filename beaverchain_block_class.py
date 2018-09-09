@@ -3,7 +3,7 @@ import hashlib
 
 class Block:
     # Initialize Block
-    def _init_(self, index, timestamp, vote, prev_hash):
+    def __init__(self, index, timestamp, vote, prev_hash):
         self.timestamp = timestamp          # Time block is created
         self.index = index                  # Block index in chain
         self.prev_hash = prev_hash          # Previous block hash
@@ -13,8 +13,8 @@ class Block:
     # Create hash for block using the index, time, vote info, and previous hash
     def hash_block(self):
         hasher = hashlib.sha256()
-        hasher.update(str(self.index) +
-                        str(self.timestamp) +
-                        str(self.prev_hash) +
-                        str(self.vote))
-        return hasher.hexidigest()
+        hasher.update((str(self.index) +
+                      str(self.timestamp) +
+                      str(self.prev_hash) +
+                      str(self.vote)).encode())
+        return hasher.hexdigest()
