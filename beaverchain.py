@@ -17,6 +17,7 @@ for i in range(0, total_blocks):
     block_to_add = new_block(prev_block)
     beaverchain.append(block_to_add)
     prev_block = block_to_add
+    print('This blocks hash is: {}'.format(block_to_add.hash))
     if (block_to_add.vote == 'no') or (block_to_add.vote == 'No') or (block_to_add.vote == 'n') or (block_to_add.vote == 'N'):
         total_no = total_no + 1
     else:
@@ -34,3 +35,9 @@ elif total_yes > total_no:
     print('There were more "Yes" votes than "No" votes.')
 else:
     print('The vote resulted in a tie.')
+
+block_view = input('Enter the hash of the block you want to view: ')
+for i in range(0, total_blocks):
+    if beaverchain[i].hash == block_view:
+        print('Block has been found')
+        print('Block Vote: {}'.format(beaverchain[i].vote))
