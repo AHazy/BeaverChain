@@ -8,5 +8,5 @@ def new_block(prev_block):
     new_index = prev_block.index + 1
     new_timestamp = datetime.now()
     new_hash = prev_block.hash
-    new_vote = "Add user input functionality"
+    new_vote = input('What is your vote? Yes or No?: ')
     return Block(new_index, new_timestamp, new_vote, new_hash)
