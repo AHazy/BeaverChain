@@ -7,7 +7,7 @@ beaverchain = [create_genesis_block()]
 prev_block = beaverchain[0]
 
 # Arbitrary number for now.  Need to change
-total_blocks = 2
+total_blocks = 4
 # Variables to hold vote count
 total_yes = 0
 total_no = 0
